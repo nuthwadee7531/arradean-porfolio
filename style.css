@@ -758,3 +758,8 @@ footer {
     text-align: center;
   }
 }
+
+#theme-toggle {
+  font-size: 1.2rem;
+  line-height: 1;
+}
