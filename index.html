@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arradean | Data Analyst Portfolio</title>
+  <meta name="description" content="Portfolio of Arradean, a professional Data Analyst specializing in SQL, Python, Tableau, and business insights.">
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Fonts: JetBrains Mono & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header id="site-header">
+    <div class="container nav-container">
+      <a href="#" class="logo">
+        <span class="accent">&lt;</span>arradean<span class="accent">.db&gt;</span>
+      </a>
+      <nav id="main-nav">
+        <ul>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="theme-switch-container">
+        <button id="theme-toggle" class="btn-icon" aria-label="Toggle Light/Dark Theme">
+          <!-- Icon will be dynamically injected by JS -->
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="about" class="hero-section">
+    <div class="container hero-container">
+      <div class="hero-content">
+        <div class="badge">console.log("Welcome to my space");</div>
+        <h1 class="hero-title">Hi, I'm <span class="text-gradient">Arradean</span></h1>
+        <p class="hero-subtitle">Data Analyst & Insights Engineer</p>
+        <p class="hero-description">
+          I translate complex datasets into clear, actionable business strategies. Specializing in building robust data pipelines, interactive dashboards, and predictive models that unlock growth.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary" id="btn-hero-projects">View Projects</a>
+          <a href="#contact" class="btn btn-secondary" id="btn-hero-contact">Get In Touch</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="console-box">
+          <div class="console-header">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="console-title">terminal - bash</span>
+          </div>
+          <div class="console-body">
+            <p class="console-line"><span class="c-prompt">arradean@portfolio ~ %</span> cat profile.json</p>
+            <pre class="console-output"><code>{
+  "name": "Arradean",
+  "role": "Data Analyst",
+  "skills": ["SQL", "Python", "Tableau", "PowerBI"],
+  "focus": "Business Intelligence & Growth",
+  "status": "Open to opportunities"
+}</code></pre>
+            <p class="console-line"><span class="c-prompt">arradean@portfolio ~ %</span> <span class="blink">▒</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="skills-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title"><span class="accent">//</span> Core Competencies</h2>
+        <p class="section-desc">My technical toolkit for processing, analyzing, and visualizing data.</p>
+      </div>
+      
+      <div class="skills-grid">
+        <!-- Databases & SQL -->
+        <div class="skill-card">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-2.239 10-5V5c0-2.761-4.477-5-10-5S2 2.239 2 5v12c0 2.761 4.477 5 10 5z"></path><path d="M22 5c0 2.761-4.477 5-10 5S2 7.761 2 5"></path><path d="M22 11c0 2.761-4.477 5-10 5S2 13.761 2 11"></path></svg>
+          </div>
+          <h3 class="skill-title">Databases & Querying</h3>
+          <ul class="skill-list">
+            <li>PostgreSQL / MySQL</li>
+            <li>Database Schema Design</li>
+            <li>Query Optimization & CTEs</li>
+            <li>Window Functions & Joins</li>
+          </ul>
+        </div>
+
+        <!-- Programming & Libraries -->
+        <div class="skill-card">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+          </div>
+          <h3 class="skill-title">Python Ecosystem</h3>
+          <ul class="skill-list">
+            <li>Pandas & NumPy</li>
+            <li>Matplotlib & Seaborn</li>
+            <li>Scikit-Learn (Modeling)</li>
+            <li>Jupyter Notebooks</li>
+          </ul>
+        </div>
+
+        <!-- Business Intelligence -->
+        <div class="skill-card">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="9" x2="9" y2="17"></line><line x1="15" y1="13" x2="15" y2="17"></line><line x1="12" y1="5" x2="12" y2="17"></line></svg>
+          </div>
+          <h3 class="skill-title">BI & Data Viz</h3>
+          <ul class="skill-list">
+            <li>Tableau Desktop/Cloud</li>
+            <li>Power BI (DAX, Power Query)</li>
+            <li>Interactive Dashboard Design</li>
+            <li>Storytelling with Data</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title"><span class="accent">//</span> Featured Projects</h2>
+        <p class="section-desc">Practical applications of analytics methodologies, from user behavior to financial modelling.</p>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card" data-project="cohort">
+          <div class="project-tag">SQL • Tableau</div>
+          <h3 class="project-title">E-Commerce Cohort & LTV Analysis</h3>
+          <p class="project-description">
+            Analyzed 12 months of transactional data to measure user retention patterns, purchase cycles, and Customer Lifetime Value (LTV).
+          </p>
+          <button class="btn btn-text" id="btn-project-cohort">Read Case Study &rarr;</button>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card" data-project="churn">
+          <div class="project-tag">Python • Scikit-Learn</div>
+          <h3 class="project-title">Predictive Customer Churn Analytics</h3>
+          <p class="project-description">
+            Developed a machine learning model to classify customer churn risk, identifying critical behavioral patterns leading to user drop-offs.
+          </p>
+          <button class="btn btn-text" id="btn-project-churn">Read Case Study &rarr;</button>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card" data-project="finance">
+          <div class="project-tag">Python • Power BI</div>
+          <h3 class="project-title">Financial Portfolio Optimization</h3>
+          <p class="project-description">
+            Built a Monte Carlo simulation engine to optimize multi-asset portfolios based on historical risk-return structures.
+          </p>
+          <button class="btn btn-text" id="btn-project-finance">Read Case Study &rarr;</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dialog / Modals for Projects -->
+  
+  <!-- Project 1 Modal: Cohort -->
+  <dialog id="modal-cohort" class="project-dialog">
+    <div class="dialog-content">
+      <div class="dialog-header">
+        <h3>E-Commerce Cohort & LTV Analysis</h3>
+        <button class="btn-close" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="dialog-body">
+        <h4>Overview</h4>
+        <p>This project models customer repeat-purchase behavior to estimate Customer Lifetime Value (LTV) and evaluate cohorts. It enables growth teams to optimize Customer Acquisition Cost (CAC) thresholds.</p>
+        
+        <h4>Methodology</h4>
+        <ol>
+          <li>Aggregated invoice transactions in PostgreSQL.</li>
+          <li>Segmented users by acquisition month (cohorts) and tracked index months.</li>
+          <li>Calculated cumulative LTV metrics and retention rates.</li>
+        </ol>
+
+        <h4>SQL Cohort Matrix Query</h4>
+        <pre class="code-block"><code>WITH cohort_acquisition AS (
+  SELECT customer_id, DATE_TRUNC('month', MIN(order_date)) AS cohort_month
+  FROM orders
+  GROUP BY 1
+),
+cohort_index AS (
+  SELECT o.customer_id,
+         o.order_amount,
+         EXTRACT(year FROM age(o.order_date, ca.cohort_month)) * 12 +
+         EXTRACT(month FROM age(o.order_date, ca.cohort_month)) AS index_month
+  FROM orders o
+  JOIN cohort_acquisition ca ON o.customer_id = ca.customer_id
+)
+SELECT cohort_month,
+       index_month,
+       COUNT(DISTINCT customer_id) AS active_users,
+       SUM(order_amount) AS revenue
+FROM cohort_index
+GROUP BY 1, 2;</code></pre>
+
+        <h4>Key Insights</h4>
+        <ul>
+          <li><strong>Retention Dropoff:</strong> 42% drop in active customers by Month 2, suggesting a need for stronger onboarding engagement.</li>
+          <li><strong>High-Value Cohorts:</strong> The November cohort showed 18% higher LTV by Month 6, driven by holiday sales and targeted email marketing.</li>
+        </ul>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Project 2 Modal: Churn -->
+  <dialog id="modal-churn" class="project-dialog">
+    <div class="dialog-content">
+      <div class="dialog-header">
+        <h3>Predictive Customer Churn Analytics</h3>
+        <button class="btn-close" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="dialog-body">
+        <h4>Overview</h4>
+        <p>Customer churn directly harms revenue. This project builds a machine learning classification model to identify users exhibiting high-churn behavior, allowing proactive support outreach.</p>
+
+        <h4>Model Details</h4>
+        <p>Using a Random Forest Classifier on historical app engagement metrics, we achieved an 87% recall rate, meaning we successfully identified 87% of potential churners before they deactivated.</p>
+
+        <h4>Python Model Pipeline Snippet</h4>
+        <pre class="code-block"><code>import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import classification_report
+
+# Load user profile & usage aggregates
+df = pd.read_csv('user_metrics.csv')
+X = df.drop(columns=['user_id', 'churned'])
+y = df['churned']
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42, stratify=y
+)
+
+# Initialize Random Forest
+model = RandomForestClassifier(n_estimators=100, max_depth=8, random_state=42)
+model.fit(X_train, y_train)
+
+# Evaluate
+preds = model.predict(X_test)
+print(classification_report(y_test, preds))</code></pre>
+
+        <h4>Key Insights</h4>
+        <ul>
+          <li><strong>Feature Importance:</strong> "Days since last login" and "Customer service calls" were the strongest indicators of churn risk.</li>
+          <li><strong>Actionable Strategy:</strong> Recommended triggering automated re-engagement emails when a customer reaches 7 consecutive days of inactivity.</li>
+        </ul>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Project 3 Modal: Finance -->
+  <dialog id="modal-finance" class="project-dialog">
+    <div class="dialog-content">
+      <div class="dialog-header">
+        <h3>Financial Portfolio Optimization</h3>
+        <button class="btn-close" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="dialog-body">
+        <h4>Overview</h4>
+        <p>Applying Modern Portfolio Theory (MPT), this project uses quantitative simulation to determine optimal asset allocation percentages that maximize return profiles for a given level of risk.</p>
+
+        <h4>Methodology</h4>
+        <p>We perform a Monte Carlo simulation generated over 10,000 distinct allocation weight scenarios for 5 asset classes (Equities, Bonds, Commodities, Real Estate, Cryptocurrencies) to calculate their Sharpe ratios.</p>
+
+        <h4>Python Portfolio Simulation Snippet</h4>
+        <pre class="code-block"><code>import numpy as np
+
+# Mocking return averages and covariance matrix
+num_portfolios = 10000
+num_assets = 5
+results = np.zeros((3, num_portfolios))
+
+for i in range(num_portfolios):
+    weights = np.random.random(num_assets)
+    weights /= np.sum(weights) # Normalize to sum to 1.0
+    
+    # Calculate portfolio return and volatility
+    p_return = np.sum(weights * asset_returns) * 252
+    p_volatility = np.sqrt(np.dot(weights.T, np.dot(cov_matrix * 252, weights)))
+    
+    results[0,i] = p_return
+    results[1,i] = p_volatility
+    results[2,i] = (p_return - risk_free_rate) / p_volatility # Sharpe Ratio</code></pre>
+
+        <h4>Key Insights</h4>
+        <ul>
+          <li><strong>Efficient Frontier:</strong> Revealed that an allocation of 45% Equities, 35% Bonds, 10% Gold, 5% Real Estate, and 5% Cryptocurrencies yielded the optimal Sharpe ratio of 1.42.</li>
+          <li><strong>Risk Mitigation:</strong> Adding commodities dynamically reduced overall portfolio volatility by 14% while retaining steady returns.</li>
+        </ul>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <div class="container contact-container">
+      <div class="contact-header">
+        <h2 class="section-title"><span class="accent">//</span> Let's Connect</h2>
+        <p class="section-desc">Have a question or looking to build some insights together? Reach out directly!</p>
+        
+        <div class="contact-details">
+          <div class="contact-item">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <a href="mailto:arradean@example.com">arradean@example.com</a>
+          </div>
+          <div class="contact-item">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            <a href="https://github.com/arradean" target="_blank" rel="noopener noreferrer">github.com/arradean</a>
+          </div>
+          <div class="contact-item">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            <a href="https://linkedin.com/in/arradean" target="_blank" rel="noopener noreferrer">linkedin.com/in/arradean</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="contact-form-container">
+        <form class="contact-form" id="contact-form" onsubmit="event.preventDefault(); alert('Message sent! Thank you.');">
+          <div class="form-group">
+            <label for="form-name">Name</label>
+            <input type="text" id="form-name" required placeholder="John Doe">
+          </div>
+          <div class="form-group">
+            <label for="form-email">Email</label>
+            <input type="email" id="form-email" required placeholder="john@example.com">
+          </div>
+          <div class="form-group">
+            <label for="form-message">Message</label>
+            <textarea id="form-message" rows="5" required placeholder="Hi Arradean, I'd love to chat about a data analytics project..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" id="btn-submit-contact">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-container">
+      <p>&copy; 2026 Arradean. Built with precision and dark-mode elegance.</p>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
