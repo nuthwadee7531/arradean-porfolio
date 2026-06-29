@@ -46,3 +46,19 @@ Here is a quick summary of the key highlights of the models being compared:
 
 These files are formatted in standard Markdown. You can easily view them using any Markdown viewer, in VS Code, or directly on GitHub. 
 To add a new smartphone model, simply append its column to [models_comparison.md](file:///Users/arradean/Gemini-CLI-Class/models_comparison.md) and list any individual breakdown documents under the directory structure in this file.
+
+---
+
+## 💼 Data Analyst Portfolio
+
+This repository also hosts Arradean's **Data Analyst Portfolio** website.
+
+### 🌐 GitHub Pages Deployment
+The portfolio source code is located in the [docs/](file:///Users/arradean/Gemini-CLI-Class/docs) directory to enable deployment via GitHub Pages.
+
+To configure and deploy the website:
+1. In your GitHub repository, navigate to **Settings** > **Pages**.
+2. Under **Build and deployment**, select **Deploy from a branch** as the source.
+3. Choose the **`main`** branch and select the **`/docs`** folder.
+4. Save the settings. Once the deployment process completes, the portfolio will be live at your GitHub Pages URL (e.g., `https://nuthwadee7531.github.io/arradean-porfolio/`).
+
