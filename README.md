@@ -21,6 +21,11 @@ The project contains the following key files:
     *   📄 **[nothing_model.md](file:///Users/arradean/Gemini-CLI-Class/nothing_model.md)** - In-depth specification document dedicated to the Nothing Phone (4a) Pro (A4 Pro).
     *   📄 **[README.md](file:///Users/arradean/Gemini-CLI-Class/README.md)** - This documentation file.
     *   📁 **[Data/](file:///Users/arradean/Gemini-CLI-Class/Data)** - Directory reserved for raw files, reference assets, and research notes.
+    *   📁 **[docs/](file:///Users/arradean/Gemini-CLI-Class/docs)** - Folder containing the portfolio website files for GitHub Pages deployment.
+        *   📄 **[index.html](file:///Users/arradean/Gemini-CLI-Class/docs/index.html)** - Portfolio home page.
+        *   📄 **[style.css](file:///Users/arradean/Gemini-CLI-Class/docs/style.css)** - Portfolio custom styling.
+        *   📄 **[app.js](file:///Users/arradean/Gemini-CLI-Class/docs/app.js)** - Portfolio interactive scripts.
+
 
 ---
 
