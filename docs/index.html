@@ -138,33 +138,33 @@
 
       <div class="projects-grid">
         <!-- Project 1 -->
-        <div class="project-card" data-project="cohort">
-          <div class="project-tag">SQL • Tableau</div>
-          <h3 class="project-title">E-Commerce Cohort & LTV Analysis</h3>
+        <div class="project-card" data-project="telco-churn">
+          <div class="project-tag">SQL • Python • Power BI</div>
+          <h3 class="project-title">Churn Modeling in Telco Business</h3>
           <p class="project-description">
-            Analyzed 12 months of transactional data to measure user retention patterns, purchase cycles, and Customer Lifetime Value (LTV).
+            Analyzed telecommunications customer data to predict subscription cancellation risks and identify primary churn drivers.
           </p>
-          <button class="btn btn-text" id="btn-project-cohort">Read Case Study &rarr;</button>
+          <button class="btn btn-text" id="btn-project-telco-churn">Read Case Study &rarr;</button>
         </div>
 
         <!-- Project 2 -->
-        <div class="project-card" data-project="churn">
-          <div class="project-tag">Python • Scikit-Learn</div>
-          <h3 class="project-title">Predictive Customer Churn Analytics</h3>
+        <div class="project-card" data-project="stock-reg">
+          <div class="project-tag">Python • Scikit-Learn • LSTM</div>
+          <h3 class="project-title">Regression Predicting Stock Price</h3>
           <p class="project-description">
-            Developed a machine learning model to classify customer churn risk, identifying critical behavioral patterns leading to user drop-offs.
+            Built multi-variable linear regression and time-series models to predict daily closing prices of key equities based on technical indicators.
           </p>
-          <button class="btn btn-text" id="btn-project-churn">Read Case Study &rarr;</button>
+          <button class="btn btn-text" id="btn-project-stock-reg">Read Case Study &rarr;</button>
         </div>
 
         <!-- Project 3 -->
-        <div class="project-card" data-project="finance">
-          <div class="project-tag">Python • Power BI</div>
-          <h3 class="project-title">Financial Portfolio Optimization</h3>
+        <div class="project-card" data-project="cust-segment">
+          <div class="project-tag">Python • K-Means • RFM</div>
+          <h3 class="project-title">Customer Segmentation via Clustering</h3>
           <p class="project-description">
-            Built a Monte Carlo simulation engine to optimize multi-asset portfolios based on historical risk-return structures.
+            Segmented customer bases using K-Means, Hierarchical, and DBSCAN clustering techniques based on RFM metrics.
           </p>
-          <button class="btn btn-text" id="btn-project-finance">Read Case Study &rarr;</button>
+          <button class="btn btn-text" id="btn-project-cust-segment">Read Case Study &rarr;</button>
         </div>
       </div>
     </div>
@@ -172,138 +172,135 @@
 
   <!-- Dialog / Modals for Projects -->
   
-  <!-- Project 1 Modal: Cohort -->
-  <dialog id="modal-cohort" class="project-dialog">
+  <!-- Project 1 Modal: Telco Churn -->
+  <dialog id="modal-telco-churn" class="project-dialog">
     <div class="dialog-content">
       <div class="dialog-header">
-        <h3>E-Commerce Cohort & LTV Analysis</h3>
+        <h3>Churn Modeling in Telco Business</h3>
         <button class="btn-close" aria-label="Close modal">&times;</button>
       </div>
       <div class="dialog-body">
         <h4>Overview</h4>
-        <p>This project models customer repeat-purchase behavior to estimate Customer Lifetime Value (LTV) and evaluate cohorts. It enables growth teams to optimize Customer Acquisition Cost (CAC) thresholds.</p>
+        <p>This project focuses on developing a predictive model to identify telco subscribers at high risk of churning. By analyzing historical contract types, monthly charges, and usage metrics, we help customer retention teams execute targeted interventions.</p>
         
         <h4>Methodology</h4>
         <ol>
-          <li>Aggregated invoice transactions in PostgreSQL.</li>
-          <li>Segmented users by acquisition month (cohorts) and tracked index months.</li>
-          <li>Calculated cumulative LTV metrics and retention rates.</li>
+          <li>Cleaned and preprocessed customer demographic and usage features in Python (Pandas).</li>
+          <li>Executed SQL queries to join billing datasets with subscriber interaction logs.</li>
+          <li>Built and tuned classification models (XGBoost) using Scikit-Learn.</li>
         </ol>
 
-        <h4>SQL Cohort Matrix Query</h4>
-        <pre class="code-block"><code>WITH cohort_acquisition AS (
-  SELECT customer_id, DATE_TRUNC('month', MIN(order_date)) AS cohort_month
-  FROM orders
-  GROUP BY 1
-),
-cohort_index AS (
-  SELECT o.customer_id,
-         o.order_amount,
-         EXTRACT(year FROM age(o.order_date, ca.cohort_month)) * 12 +
-         EXTRACT(month FROM age(o.order_date, ca.cohort_month)) AS index_month
-  FROM orders o
-  JOIN cohort_acquisition ca ON o.customer_id = ca.customer_id
-)
-SELECT cohort_month,
-       index_month,
-       COUNT(DISTINCT customer_id) AS active_users,
-       SUM(order_amount) AS revenue
-FROM cohort_index
-GROUP BY 1, 2;</code></pre>
+        <h4>SQL Query to Isolate High-Risk Segments</h4>
+        <pre class="code-block"><code>-- SQL Query to isolate high-risk customer segments
+SELECT 
+    customer_id, 
+    tenure_months, 
+    contract_type, 
+    monthly_charges,
+    internet_service_type,
+    CASE 
+        WHEN monthly_charges > 70 AND tenure_months < 12 AND contract_type = 'Month-to-month' THEN 'High Risk'
+        WHEN contract_type = 'Month-to-month' THEN 'Medium Risk'
+        ELSE 'Low Risk'
+    END AS risk_tier
+FROM telco_customers
+WHERE status = 'Active'
+ORDER BY monthly_charges DESC;</code></pre>
 
         <h4>Key Insights</h4>
         <ul>
-          <li><strong>Retention Dropoff:</strong> 42% drop in active customers by Month 2, suggesting a need for stronger onboarding engagement.</li>
-          <li><strong>High-Value Cohorts:</strong> The November cohort showed 18% higher LTV by Month 6, driven by holiday sales and targeted email marketing.</li>
+          <li><strong>Contract Risk:</strong> Customers on month-to-month contracts are 5x more likely to churn than those on annual contracts.</li>
+          <li><strong>Friction Points:</strong> Subscribers experiencing payment method failures churned within 30 days of the failure.</li>
+          <li><strong>Retention Strategy:</strong> Offered a 15% discount for switching from fiber optic to DSL/basic packages, saving 22% of at-risk users.</li>
         </ul>
       </div>
     </div>
   </dialog>
 
-  <!-- Project 2 Modal: Churn -->
-  <dialog id="modal-churn" class="project-dialog">
+  <!-- Project 2 Modal: Stock Regression -->
+  <dialog id="modal-stock-reg" class="project-dialog">
     <div class="dialog-content">
       <div class="dialog-header">
-        <h3>Predictive Customer Churn Analytics</h3>
+        <h3>Regression Predicting Stock Price</h3>
         <button class="btn-close" aria-label="Close modal">&times;</button>
       </div>
       <div class="dialog-body">
         <h4>Overview</h4>
-        <p>Customer churn directly harms revenue. This project builds a machine learning classification model to identify users exhibiting high-churn behavior, allowing proactive support outreach.</p>
+        <p>Utilizing historical price data, moving averages, and volatility indices, this project implements multiple regression models to forecast short-term stock prices and support algorithmic trading decisions.</p>
 
-        <h4>Model Details</h4>
-        <p>Using a Random Forest Classifier on historical app engagement metrics, we achieved an 87% recall rate, meaning we successfully identified 87% of potential churners before they deactivated.</p>
+        <h4>Methodology</h4>
+        <ol>
+          <li>Extracted historical equity data using <code>yfinance</code>.</li>
+          <li>Engineered technical indicators (RSI, MACD, 50-day and 200-day Simple Moving Averages).</li>
+          <li>Trained and cross-validated Linear Regression and Ridge Regression models.</li>
+        </ol>
 
         <h4>Python Model Pipeline Snippet</h4>
         <pre class="code-block"><code>import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import classification_report
+from sklearn.linear_model import Ridge
+from sklearn.preprocessing import StandardScaler
 
-# Load user profile & usage aggregates
-df = pd.read_csv('user_metrics.csv')
-X = df.drop(columns=['user_id', 'churned'])
-y = df['churned']
+# Load stock data and engineer features
+df = pd.read_csv('stock_prices.csv')
+df['SMA_50'] = df['Close'].rolling(window=50).mean()
+df['RSI'] = calculate_rsi(df['Close'])
+df = df.dropna()
 
-X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.2, random_state=42, stratify=y
-)
+# Split features and target
+X = df[['SMA_50', 'RSI', 'Volume']]
+y = df['Next_Day_Close']
 
-# Initialize Random Forest
-model = RandomForestClassifier(n_estimators=100, max_depth=8, random_state=42)
-model.fit(X_train, y_train)
-
-# Evaluate
-preds = model.predict(X_test)
-print(classification_report(y_test, preds))</code></pre>
+# Standardize and fit Ridge Regression
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+model = Ridge(alpha=1.0)
+model.fit(X_scaled, y)</code></pre>
 
         <h4>Key Insights</h4>
         <ul>
-          <li><strong>Feature Importance:</strong> "Days since last login" and "Customer service calls" were the strongest indicators of churn risk.</li>
-          <li><strong>Actionable Strategy:</strong> Recommended triggering automated re-engagement emails when a customer reaches 7 consecutive days of inactivity.</li>
+          <li><strong>Feature Weight:</strong> Historical volume and standard deviation of the last 14 days had the highest predictive coefficients.</li>
+          <li><strong>Error Rate:</strong> Achieved a Mean Absolute Percentage Error (MAPE) of 1.45% on a 30-day forward test window.</li>
         </ul>
       </div>
     </div>
   </dialog>
 
-  <!-- Project 3 Modal: Finance -->
-  <dialog id="modal-finance" class="project-dialog">
+  <!-- Project 3 Modal: Customer Segmentation -->
+  <dialog id="modal-cust-segment" class="project-dialog">
     <div class="dialog-content">
       <div class="dialog-header">
-        <h3>Financial Portfolio Optimization</h3>
+        <h3>Customer Segmentation using Clustering</h3>
         <button class="btn-close" aria-label="Close modal">&times;</button>
       </div>
       <div class="dialog-body">
         <h4>Overview</h4>
-        <p>Applying Modern Portfolio Theory (MPT), this project uses quantitative simulation to determine optimal asset allocation percentages that maximize return profiles for a given level of risk.</p>
+        <p>Understanding user diversity is key to targeted marketing. This project applies unsupervised learning to segment e-commerce customers into distinct groups, optimizing marketing campaign spend.</p>
 
         <h4>Methodology</h4>
-        <p>We perform a Monte Carlo simulation generated over 10,000 distinct allocation weight scenarios for 5 asset classes (Equities, Bonds, Commodities, Real Estate, Cryptocurrencies) to calculate their Sharpe ratios.</p>
+        <ol>
+          <li>Calculated Recency, Frequency, and Monetary (RFM) values from transaction logs.</li>
+          <li>Applied Log Transformation and MinMax scaling to normalize heavily skewed distributions.</li>
+          <li>Compared K-Means (Elbow method/Silhouette score), Agglomerative Hierarchical, and DBSCAN clustering.</li>
+        </ol>
 
-        <h4>Python Portfolio Simulation Snippet</h4>
-        <pre class="code-block"><code>import numpy as np
+        <h4>Python Portfolio Clustering Snippet</h4>
+        <pre class="code-block"><code>from sklearn.cluster import KMeans
+from sklearn.metrics import silhouette_score
 
-# Mocking return averages and covariance matrix
-num_portfolios = 10000
-num_assets = 5
-results = np.zeros((3, num_portfolios))
+# Normalizing RFM metrics
+rfm_scaled = scaler.fit_transform(rfm_df[['Recency', 'Frequency', 'Monetary']])
 
-for i in range(num_portfolios):
-    weights = np.random.random(num_assets)
-    weights /= np.sum(weights) # Normalize to sum to 1.0
-    
-    # Calculate portfolio return and volatility
-    p_return = np.sum(weights * asset_returns) * 252
-    p_volatility = np.sqrt(np.dot(weights.T, np.dot(cov_matrix * 252, weights)))
-    
-    results[0,i] = p_return
-    results[1,i] = p_volatility
-    results[2,i] = (p_return - risk_free_rate) / p_volatility # Sharpe Ratio</code></pre>
+# Iterate to find optimal cluster count
+for k in range(2, 6):
+    kmeans = KMeans(n_clusters=k, random_state=42, n_init=10)
+    labels = kmeans.fit_predict(rfm_scaled)
+    score = silhouette_score(rfm_scaled, labels)
+    print(f"Clusters: {k}, Silhouette Score: {score:.2f}")</code></pre>
 
         <h4>Key Insights</h4>
         <ul>
-          <li><strong>Efficient Frontier:</strong> Revealed that an allocation of 45% Equities, 35% Bonds, 10% Gold, 5% Real Estate, and 5% Cryptocurrencies yielded the optimal Sharpe ratio of 1.42.</li>
-          <li><strong>Risk Mitigation:</strong> Adding commodities dynamically reduced overall portfolio volatility by 14% while retaining steady returns.</li>
+          <li><strong>Optimal Segments:</strong> Identified 4 distinct customer personas: Champions, Loyal Customers, At-Risk, and Hibernating.</li>
+          <li><strong>Targeted Impact:</strong> Tailored marketing campaigns directed at the 'At-Risk' cohort boosted engagement by 28% and recovered 12% in sales.</li>
         </ul>
       </div>
     </div>
